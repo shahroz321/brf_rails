@@ -33,7 +33,7 @@ export default class extends Controller {
             let usersArray = Object.values(data)[0]
             usersArray.forEach(function(user){
                 // data-toggle="modal" data-id=${user.id} data-target="hello.details"
-                userHTML += `<tr><a data-action="click->users#launchDemo"><td>${user.name}</td></a><td>${user.surename}</td><td>${user.ssn}</td></tr>`
+                userHTML += `<tr><a data-action="click->hello#launchDemo"><td>${user.name}</td></a><td>${user.surename}</td><td>${user.ssn}</td></tr>`
             });
             loadUsersTarget.innerHTML = userHTML;
         }).catch(function(error) {
