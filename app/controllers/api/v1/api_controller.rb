@@ -1,5 +1,5 @@
 class Api::V1::ApiController < ApplicationController
-  before_action :require_valid_api_token
+  # before_action :require_valid_api_token
 
   protected
 
@@ -9,6 +9,6 @@ class Api::V1::ApiController < ApplicationController
   end
 
   def api_key
-    Rpa::Application.config.api_request_key
+    BrfRails::Application.config.api_request_key
   end
 end
