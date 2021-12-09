@@ -1,11 +1,7 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-    static targets =  [ "name", "output", "loadUsers", "modal" ]
-
-    launchDemo(){
-        this.modalTarget.open();
-    }
+    static targets =  [ "name", "output", "userModal", "loadUsers" ]
 
     userDetails(event){
         let detailsTarget = this.detailsTarget
@@ -32,8 +28,7 @@ export default class extends Controller {
             let userHTML = "";
             let usersArray = Object.values(data)[0]
             usersArray.forEach(function(user){
-                // data-toggle="modal" data-id=${user.id} data-target="hello.details"
-                userHTML += `<tr><a data-action="click->users#launchDemo"><td>${user.name}</td></a><td>${user.surename}</td><td>${user.ssn}</td></tr>`
+                userHTML += `<tr><td><a  data-controller="apartments" data-action='apartments#launchDemo' id="${user.id}">${user.name}</a></td><td>${user.surename}</td><td>${user.ssn}</td></tr>`
             });
             loadUsersTarget.innerHTML = userHTML;
         }).catch(function(error) {
